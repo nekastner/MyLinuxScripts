@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# lock root
+sudo passwd -l root
+
 # update installed packages
 sudo pacman -Syu --noconfirm
 
@@ -13,6 +16,11 @@ rm -rf paru
 
 # install additional packages
 PACKAGES_TO_INSTALL=(
+    # zsh
+    "zsh"
+    "zsh-completions"
+    "zsh-syntax-highlighting"
+    "zsh-autosuggestions"
     # hyprland
     "hyprland"
     "hyprlock"
