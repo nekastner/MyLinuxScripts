@@ -1,2 +1,2 @@
 # MyScripts
-A collection of self-written scripts I find useful
+A collection of self-written scripts for Linux (Arch) I find useful
