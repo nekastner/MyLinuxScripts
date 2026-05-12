@@ -140,15 +140,8 @@
         },
         "optional_repositories": []
     },
-    "network_config": {
-        "type": "nm_iwd"
-    },
     "ntp": true,
     "packages": [
-        "zsh",
-        "zsh-autosuggestions",
-        "zsh-completions",
-        "zsh-syntax-highlighting",
         "archinstall"
     ],
     "pacman_config": {
