@@ -7,7 +7,7 @@ sudo passwd -l root
 sudo pacman -Syu --noconfirm
 
 # install paru
-sudo pacman -S -needed --noconfirm git base-devel
+sudo pacman -S --needed --noconfirm git base-devel
 git clone https://aur.archlinux.org/paru.git
 cd paru
 makepkg -si
