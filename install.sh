@@ -21,6 +21,9 @@ PACKAGES_TO_INSTALL=(
     # base
     "librewolf-bin"
     "thunderbird"
+    "loupe"
+    "elisa"
+    "vlc"
     # ides
     "neovim"
     "code"
