@@ -6,8 +6,17 @@ sudo passwd -l root
 # update installed packages
 sudo pacman -Syu --noconfirm
 
-# install paru
-sudo pacman -S --needed --noconfirm git base-devel
+# setup git
+sudo pacman -S --noconfirm git
+
+# setup base-devel
+sudo pacman -S --noconfirm base-devel
+
+# setup rust
+sudo pacman -S --noconfirm rustup
+rustup default stable
+
+# setup paru
 git clone https://aur.archlinux.org/paru.git
 cd paru
 makepkg -si
@@ -16,12 +25,13 @@ rm -rf paru
 
 # install additional packages
 PACKAGES_TO_INSTALL=(
+    # utils
     "git"
-    # zsh
-    "zsh"
-    "zsh-completions"
-    "zsh-syntax-highlighting"
-    "zsh-autosuggestions"
+    "nano"
+    "bat"
+    "ripgrep"
+    "sbctl"
+    "cpupower"
     # hyprland
     "hyprland"
     "hyprlock"
@@ -39,33 +49,13 @@ PACKAGES_TO_INSTALL=(
     "rider"
     "unityhub"
     # coding languages and managers
-    "rustup"
     "nodejs"
     "npm"
 )
 paru -S --needed --noconfirm "${PACKAGES_TO_INSTALL[@]}"
 
-# enable zsh
+# setup zsh
+sudo pacman -S --noconfirm zsh zsh-completions zsh-syntax-highlighting zsh-autosuggestions
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 chsh -s /usr/bin/zsh
-
-# set rust default
-rustup default stable
-
-# hints
-cat << EOF
-copy configs:
-
-- zsh
-
-- hyprland
-- hyprlock
-- waybar
-
-- librewolf
-- thunderbird
-
-- neovim
-- rider
-EOF
 
