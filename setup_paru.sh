@@ -1,7 +1,9 @@
 #!/bin/bash
 
+SCRIPT_DIR=$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" &> /dev/null && pwd)
+
 sudo pacman -S --needed --noconfirm git base-devel
-setup_rust.sh
+"$SCRIPT_DIR/setup_rust.sh"
 
 git clone https://aur.archlinux.org/paru.git
 

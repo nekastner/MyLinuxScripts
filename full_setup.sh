@@ -1,15 +1,17 @@
 #!/bin/bash
 
-lock_root.sh
+SCRIPT_DIR=$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" &> /dev/null && pwd)
+
+"$SCRIPT_DIR/lock_root.sh"
 
 # update installed packages
 sudo pacman -Syu --noconfirm
 
-setup_base_utils.sh
+"$SCRIPT_DIR/setup_base_utils.sh"
 
-setup_rust.sh
+"$SCRIPT_DIR/setup_rust.sh"
 
-setup_paru.sh
+"$SCRIPT_DIR/setup_paru.sh"
 
 # install additional packages
 PACKAGES_TO_INSTALL=(
@@ -35,5 +37,5 @@ PACKAGES_TO_INSTALL=(
 )
 paru -S --needed --noconfirm "${PACKAGES_TO_INSTALL[@]}"
 
-setup_zsh.sh
+"$SCRIPT_DIR/setup_zsh.sh"
 
