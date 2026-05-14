@@ -1,5 +1,9 @@
 #!/bin/bash
 
+if command -v paru &> /dev/null; then
+    exit 0
+fi
+
 SCRIPT_DIR=$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" &> /dev/null && pwd)
 
 sudo pacman -S --needed --noconfirm git base-devel
