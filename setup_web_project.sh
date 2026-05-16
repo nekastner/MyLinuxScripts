@@ -35,14 +35,12 @@ EOF
 rm src/index.css
 
 # setup src/main.tsx
-sed -i "1i import \"./tailwind.css\"" src/main.tsx
 sed -i "/index\.css/d" src/main.tsx
 sed -i "s/'\''/\"/g" src/main.tsx # not working right now
 
 # setup src/App.tsx
 cat << "EOF" > src/App.tsx
 import "./tailwind.css"
-import react from "react";
 
 function App() {
     return (
