@@ -1,4 +1,4 @@
-sudo pacman -S ufw
+sudo pacman -S --needed --noconfirm ufw
 sudo systemctl enable ufw.service
 
 sudo ufw default deny incoming
