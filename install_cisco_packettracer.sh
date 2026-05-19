@@ -8,17 +8,21 @@ mkdir -p "$TEMP_PATH"
 
 # download
 git clone "$GIT_REPO_URL" "$TEMP_PATH"
-read -p "Download .deb package from 'https://www.netacad.com/resources/lab-downloads' into $TEMP_PATH. Press Enter to continue..." --
+read -p "Download .deb package from 'https://www.netacad.com/resources/lab-downloads' into $TEMP_PATH. Press Enter to continue..."
 
 # build
-makepkg -si -D "$TEMP_PATH"
+cd "$TEMP_PATH"
+makepkg -si
+cd "$HOME"
 
 # remove trash
-rm rf "$TEMP_PATH"
+rm -rf "$TEMP_PATH"
 
 # create executable app
-sudo "$INSTALL_PATH/packettracer.AppImage" --appimage-extract
-"$INSTALL_PATH/squashfs-root/AppRun" &
+cd "$INSTALL_PATH"
+sudo ./packettracer.AppImage --appimage-extract
+squashfs-root/AppRun &
+cd "$HOME"
 
 # copy icon
 sudo cp /usr/lib/packettracer/squashfs-root/app.png /usr/share/icons/hicolor/48x48/apps/cisco-packettracer.png
